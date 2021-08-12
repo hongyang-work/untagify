@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Tagify from "./tagify/Tagify";
-import Untagify from "./tagify/Untagify";
+import Tagify from "./tagification/Tagify";
+import Untagify from "./tagification/Untagify";
 
 function App() {
     const rawText = "[[{\"value\": \"first\", \"prefix\": \"@\"}]] [[{\"value\": \"second\", \"prefix\": \"@\"}]]";
