@@ -1,10 +1,10 @@
 import React from 'react';
-import './App.css';
+
 import Tagify from "./tagification/Tagify";
 import Untagify from "./tagification/Untagify";
 
 function App() {
-    const rawText: string = "[[{\"value\": \"first\", \"prefix\": \"@\"}]] [[{\"value\": \"second\", \"prefix\": \"@\"}]]";
+    const rawText: string = "[[{\"value\": \"first\", \"prefix\": \"@\", \"id\": \"id\", \"type\": \"type\"}]] [[{\"value\": \"second\", \"prefix\": \"@\", \"id\": \"id\", \"type\": \"type\"}]]";
     const tagify: Tagify = new Tagify(rawText);
     const untagify: Untagify = new Untagify(tagify.parsed, tagify.ranges());
 

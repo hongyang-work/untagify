@@ -2,18 +2,18 @@ import Range from "./Range";
 
 class Untagify {
 
-    public raw;
-    public parsed;
+    public readonly raw: string;
+    public readonly parsed: string;
 
     constructor(raw: string, ranges: Range[]) {
         this.raw = raw;
         this.parsed = this.transform(raw, ranges);
     }
 
-    transform = (text: string, ranges: Range[]) => {
+    transform = (text: string, ranges: Range[]): string => {
         this.validateRanges(ranges);
         for (const range of ranges.reverse()) {
-            const tag = {
+            const tag: object = {
                 value: text.substring(range.start + 1, range.end),
                 prefix:  text.charAt(range.start)
             };
@@ -22,7 +22,7 @@ class Untagify {
         return text;
     }
 
-    validateRanges = (ranges: Range[]) => {
+    validateRanges = (ranges: Range[]): void => {
         ranges.forEach(range => this.validateRange(range));
         const sorted: Range[] = [...ranges].sort((a, b) => b.start - a.start);
         for (let i = 0; i < sorted.length - 1; i++) {
@@ -32,7 +32,7 @@ class Untagify {
         }
     }
 
-    validateRange = (range: Range) => {
+    validateRange = (range: Range): void => {
         if (range.start >= range.end) throw new Error("Invalid Range: end must be larger than start");
     }
 }
