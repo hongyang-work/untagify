@@ -13,7 +13,7 @@ class Untagify {
     transform = (text: string, ranges: Range[]) => {
         this.validateRanges(ranges);
         for (const range of ranges.reverse()) {
-            const tag = {
+            const tag: object = {
                 value: text.substring(range.start + 1, range.end),
                 prefix:  text.charAt(range.start)
             };

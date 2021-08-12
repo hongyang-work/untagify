@@ -4,9 +4,9 @@ import Tagify from "./tagification/Tagify";
 import Untagify from "./tagification/Untagify";
 
 function App() {
-    const rawText = "[[{\"value\": \"first\", \"prefix\": \"@\"}]] [[{\"value\": \"second\", \"prefix\": \"@\"}]]";
-    const tagify = new Tagify(rawText);
-    const untagify = new Untagify(tagify.parsed, tagify.ranges());
+    const rawText: string = "[[{\"value\": \"first\", \"prefix\": \"@\"}]] [[{\"value\": \"second\", \"prefix\": \"@\"}]]";
+    const tagify: Tagify = new Tagify(rawText);
+    const untagify: Untagify = new Untagify(tagify.parsed, tagify.ranges());
 
     return (
         <div className="App">
